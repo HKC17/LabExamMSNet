@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h1 style="text-align:center;margin-top:50px">Fuel Economy Calculator</h1>
+
+@using (Html.BeginForm("calculateFuel", "Home", FormMethod.Post))
+{
+    <div class="container" style="text-align:center; margin-top:50px">
+        <label for="fuelEconomy">Fuel Economy :</label>
+        <input type="number" step="any" name="fuelEconomy" id="fuelEconomy" placeholder="Enter Fuel (km/L)" required />
+        <input type="submit" class="btn btn-outline-warning" value="Calculate" />
+    </div>
+}
+
+@if (ViewBag.FuelEconomy != null)
+{
+    <div class="container" style="text-align: center; margin-top: 50px">
+        <h3 style="color:aqua">Result:</h3>
+        <p>Fuel Economy: @ViewBag.FuelEconomy L/100 km</p>
+    </div>
+}
+
